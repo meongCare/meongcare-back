@@ -9,11 +9,9 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-import java.time.LocalTime;
 import java.util.List;
 
 import static com.meongcare.domain.supplements.domain.entity.QSupplements.supplements;
-import static com.meongcare.domain.supplements.domain.entity.QSupplementsRecord.supplementsRecord;
 import static com.meongcare.domain.supplements.domain.entity.QSupplementsTime.supplementsTime;
 
 @RequiredArgsConstructor
@@ -37,6 +35,7 @@ public class SupplementsTimeQueryRepository {
     public List<GetSupplementsRoutineWithoutStatusVO> findBySupplementsId(Long supplementsId) {
         return queryFactory
                 .select(new QGetSupplementsRoutineWithoutStatusVO(
+                        supplementsTime.supplements.id,
                         supplementsTime.supplements.name,
                         supplementsTime.intakeCount,
                         supplementsTime.supplements.intakeUnit,

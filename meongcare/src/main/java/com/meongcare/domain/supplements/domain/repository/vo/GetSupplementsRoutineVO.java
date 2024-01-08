@@ -8,6 +8,7 @@ import java.time.LocalTime;
 @Getter
 public class GetSupplementsRoutineVO {
     private Long supplementsRecordId;
+    private Long supplementsId;
     private String name;
     private int intakeCount;
     private String intakeUnit;
@@ -15,8 +16,9 @@ public class GetSupplementsRoutineVO {
     private boolean intakeStatus;
 
     @QueryProjection
-    public GetSupplementsRoutineVO(Long supplementsRecordId, String name, int intakeCount, String intakeUnit, LocalTime intakeTime, boolean intakeStatus) {
+    public GetSupplementsRoutineVO(Long supplementsRecordId, Long supplementsId, String name, int intakeCount, String intakeUnit, LocalTime intakeTime, boolean intakeStatus) {
         this.supplementsRecordId = supplementsRecordId;
+        this.supplementsId = supplementsId;
         this.name = name;
         this.intakeCount = intakeCount;
         this.intakeUnit = intakeUnit;

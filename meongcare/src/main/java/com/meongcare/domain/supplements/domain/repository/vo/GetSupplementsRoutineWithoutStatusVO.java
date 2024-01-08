@@ -7,13 +7,15 @@ import java.time.LocalTime;
 
 @Getter
 public class GetSupplementsRoutineWithoutStatusVO {
+    private Long supplementsId;
     private String name;
     private int intakeCount;
     private String intakeUnit;
     private LocalTime intakeTime;
 
     @QueryProjection
-    public GetSupplementsRoutineWithoutStatusVO(String name, int intakeCount, String intakeUnit, LocalTime intakeTime) {
+    public GetSupplementsRoutineWithoutStatusVO(Long supplementsId, String name, int intakeCount, String intakeUnit, LocalTime intakeTime) {
+        this.supplementsId = supplementsId;
         this.name = name;
         this.intakeCount = intakeCount;
         this.intakeUnit = intakeUnit;

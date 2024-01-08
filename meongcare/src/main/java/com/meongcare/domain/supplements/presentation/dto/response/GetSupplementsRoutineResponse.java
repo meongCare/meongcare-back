@@ -27,6 +27,9 @@ public class GetSupplementsRoutineResponse {
         @Schema(description = "루틴 기록 ID", example = "1")
         private Long supplementsRecordId;
 
+        @Schema(description = "영양제 id", example = "2")
+        private Long supplementsId;
+
         @Schema(description = "영양제 제품명", example = "밥이보약 하루양갱")
         private String name;
 
@@ -50,6 +53,7 @@ public class GetSupplementsRoutineResponse {
                 .map(routine ->
                         Routine.builder()
                         .supplementsRecordId(routine.getSupplementsRecordId())
+                        .supplementsId(routine.getSupplementsId())
                         .name(routine.getName())
                         .intakeTime(routine.getIntakeTime())
                         .intakeCount(routine.getIntakeCount())
@@ -66,6 +70,7 @@ public class GetSupplementsRoutineResponse {
         List<Routine> routines = GetSupplementsRoutineWithoutStatusVO.stream()
                 .map(routine ->
                         Routine.builder()
+                        .supplementsId(routine.getSupplementsId())
                         .name(routine.getName())
                         .intakeTime(routine.getIntakeTime())
                         .intakeCount(routine.getIntakeCount())

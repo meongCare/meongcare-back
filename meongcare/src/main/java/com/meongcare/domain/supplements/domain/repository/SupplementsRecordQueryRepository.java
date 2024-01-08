@@ -31,6 +31,7 @@ public class SupplementsRecordQueryRepository {
         return queryFactory
                 .select(new QGetSupplementsRoutineVO(
                         supplementsRecord.id,
+                        supplementsRecord.supplements.id,
                         supplementsRecord.supplements.name,
                         supplementsRecord.supplementsTime.intakeCount,
                         supplementsRecord.supplements.intakeUnit,
